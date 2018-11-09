@@ -1,25 +1,50 @@
 package com.zzw.o2o.util;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
+
+@Configuration
 public class FileUtil {
 	private static String seperator = System.getProperty("file.separator");
 	private static final SimpleDateFormat sDateFormat = new SimpleDateFormat(
 			"yyyyMMddHHmmss"); // 时间格式化的格式
 	private static final Random r = new Random();
 
+	private static String winPath;
+
+	private static String linuxPath;
+
+	private static String shopPath;
+
+	@Value("${win.base.path}")
+	public void setWinPath(String winPath) {
+		FileUtil.winPath = winPath;
+	}
+	@Value("${linux.base.path}")
+	public void setLinuxPath(String linuxPath) {
+		FileUtil.linuxPath = linuxPath;
+	}
+	@Value("${shop.relevant.path}")
+	public void setShopPath(String shopPath) {
+		FileUtil.shopPath = shopPath;
+	}
+
 	public static String getImgBasePath() {
 		String os = System.getProperty("os.name");
 		String basePath = "";
 		if (os.toLowerCase().startsWith("win")) {
-			basePath = "F:\\javaCode\\OfferProduct\\xioayuanshangpu\\Image\\win\\";
+			//basePath = "F:\\javaCode\\OfferProduct\\xioayuanshangpu\\Image\\win\\";
+			basePath = winPath;
 			//basePath="/root/image"; //放到阿里云服务器上需要修改图片文件路径
 		} else {
-			basePath = "F:\\javaCode\\OfferProduct\\xioayuanshangpu\\Image\\others\\";
-			//basePath="/root/image";
+			basePath = winPath;
+			//basePath= linuxPath;
 		}
 		basePath = basePath.replace("/", seperator);
 		return basePath;
