@@ -9,7 +9,6 @@ import com.zzw.o2o.entity.ShopAuthMap;
 public interface ShopAuthMapDao {
 	/**
 	 * 分页列出店铺下面的授权信息
-	 * 
 	 * @param shopId
 	 * @param pageSize
 	 * @return
@@ -20,7 +19,6 @@ public interface ShopAuthMapDao {
 
 	/**
 	 * 获取授权总数
-	 * 
 	 * @param shopId
 	 * @return
 	 */
@@ -28,7 +26,6 @@ public interface ShopAuthMapDao {
 
 	/**
 	 * 新增一条店铺与店员的授权关系
-	 * 
 	 * @param shopAuthMap
 	 * @return effectedNum
 	 */
@@ -36,7 +33,6 @@ public interface ShopAuthMapDao {
 
 	/**
 	 * 更新授权信息
-	 * 
 	 * @param shopAuthMap
 	 * @return
 	 */
@@ -44,16 +40,11 @@ public interface ShopAuthMapDao {
 
 	/**
 	 * 对某员工除权
-	 * 
-	 * @param employeeId
-	 * @param shopId
 	 * @return effectedNum
 	 */
-	int deleteShopAuthMap(@Param("employeeId") long employeeId,
-                          @Param("shopId") long shopId);
+	int deleteShopAuthMap(long shopAuthId);
 
 	/**
-	 * 
 	 * @param shopAuthId
 	 * @return
 	 */

@@ -43,7 +43,7 @@ public class FileUtil {
 			basePath = winPath;
 			//basePath="/root/image"; //放到阿里云服务器上需要修改图片文件路径
 		} else {
-			basePath = winPath;
+			basePath = linuxPath;
 			//basePath= linuxPath;
 		}
 		basePath = basePath.replace("/", seperator);

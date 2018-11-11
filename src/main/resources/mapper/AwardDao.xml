@@ -3,6 +3,19 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zzw.o2o.dao.AwardDao">
+	<!--
+	private Long awardId;
+	private String awardName;
+	private String awardDesc;
+	private String awardImg;
+	private Integer point;
+	private Integer priority;
+	private Date createTime;
+	private Date expireTime;
+	private Date lastEditTime;
+	private Integer enableStatus;
+	private Long shopId;
+	-->
 	<select id="queryAwardList" resultType="com.zzw.o2o.entity.Award">
 		SELECT
 		award_id,
@@ -21,22 +34,26 @@
 		<where>
 			<!-- 写like语句的时候 一般都会写成 like '% %' 在mybatis里面写就是应该是 like '%${name} %' 而不是 
 				'%#{name} %' ${name} 是不带单引号的，而#{name} 是带单引号的 -->
+			<!--按奖品名模糊查询-->
 			<if test="awardCondition.awardName!=null">
 				and award_name like '%${awardCondition.awardName}%'
 			</if>
+			<!--按店铺查询-->
 			<if test="awardCondition.shopId!=null">
 				and shop_id = #{awardCondition.shopId}
 			</if>
+			<!--到期时间-->
 			<if test="awardCondition.expireTime!=null">
 				and expire_time > #{awardCondition.expireTime}
 			</if>
+			<!--按可用状态查询-->
 			<if test="awardCondition.enableStatus!=null">
 				and enable_status = #{awardCondition.enableStatus}
 			</if>
 		</where>
 		ORDER BY
 		priority DESC
-		LIMIT #{rowIndex},#{pageSize};
+		LIMIT #{rowIndex}, #{pageSize};
 	</select>
 
 	<select id="queryAwardCount" resultType="int">
@@ -79,6 +96,7 @@
 		award_id =
 		#{awardId}
 	</select>
+
 	<insert id="insertAward" parameterType="com.zzw.o2o.entity.Award"
 		useGeneratedKeys="true" keyProperty="awardId" keyColumn="award_id">
 		INSERT INTO
@@ -90,6 +108,7 @@
 		#{point},#{priority},#{createTime},#{expireTime},
 		#{lastEditTime},#{enableStatus},#{shopId})
 	</insert>
+
 	<update id="updateAward" parameterType="com.zzw.o2o.entity.Award"
 		keyProperty="award_id" useGeneratedKeys="true">
 		UPDATE tb_award

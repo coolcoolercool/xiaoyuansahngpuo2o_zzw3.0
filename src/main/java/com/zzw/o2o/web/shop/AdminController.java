@@ -13,7 +13,7 @@ import com.zzw.o2o.entity.Shop;
 import com.zzw.o2o.util.HttPServletRequestUtil;
 
 @Controller
-@RequestMapping(value = "shop", method = { RequestMethod.GET,RequestMethod.POST })
+@RequestMapping(value = "暂时不用shop", method = { RequestMethod.GET,RequestMethod.POST })
 public class AdminController {
 	@RequestMapping(value = "/test")
 	public Map<String, Object> productcategory(HttpServletRequest request) {

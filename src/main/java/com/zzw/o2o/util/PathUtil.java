@@ -42,7 +42,7 @@ public class PathUtil {
             //basePath = "F:\\javaCode\\OfferProduct\\xioayuanshangpu\\Image\\win";
             basePath = winPath;
         }else{
-            basePath="F:\\javaCode\\OfferProduct\\xioayuanshangpu\\Image\\others\\";
+            basePath=linuxPath;
         }
         basePath = basePath.replace("/", separator);
         return basePath;

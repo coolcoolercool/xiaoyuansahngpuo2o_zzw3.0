@@ -8,7 +8,7 @@ import com.zzw.o2o.entity.UserShopMap;
 
 public interface UserShopMapDao {
 	/**
-	 * 
+	 * 根据查询条件返回用户店铺积分列表
 	 * @param userShopCondition
 	 * @param rowIndex
 	 * @param pageSize
@@ -18,11 +18,17 @@ public interface UserShopMapDao {
             @Param("userShopCondition") UserShopMap userShopCondition,
             @Param("rowIndex") int rowIndex, @Param("pageSize") int pageSize);
 
+	/**
+	 * 根据传入的用户Id和shopId查询改用户在某个店铺的积分信息
+	 * @param userId
+	 * @param shopId
+	 * @return
+	 */
 	UserShopMap queryUserShopMap(@Param("userId") long userId,
                                  @Param("shopId") long shopId);
 
 	/**
-	 * 
+	 * 配合queryUserShopMapList根据相同的查询条件返回用户店铺积分记录总数
 	 * @param userShopCondition
 	 * @return
 	 */
@@ -30,14 +36,14 @@ public interface UserShopMapDao {
             @Param("userShopCondition") UserShopMap userShopCondition);
 
 	/**
-	 * 
+	 * 添加一条用户店铺的积分记录
 	 * @param userShopMap
 	 * @return
 	 */
 	int insertUserShopMap(UserShopMap userShopMap);
 
 	/**
-	 * 
+	 * 更新用户在某店铺的积分
 	 * @param userShopMap
 	 * @return
 	 */

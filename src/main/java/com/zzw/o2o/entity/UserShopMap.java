@@ -15,8 +15,11 @@ public class UserShopMap {
 	private Date createTime;
 	//顾客在该店铺的积分
 	private Integer point;
+	//顾客信息实体类
 	private PersonInfo user;
+	//商品信息实体类, 感觉这个商品这个没有,没撒用
 	private Product product;
+	//店铺信息实体类
 	private Shop shop;
 
 	public Long getUserShopId() {

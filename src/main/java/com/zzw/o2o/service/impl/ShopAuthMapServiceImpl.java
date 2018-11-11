@@ -22,11 +22,15 @@ public class ShopAuthMapServiceImpl implements ShopAuthMapService {
 	@Override
 	public ShopAuthMapExecution listShopAuthMapByShopId(Long shopId,
 			Integer pageIndex, Integer pageSize) {
+		//非空判断
 		if (shopId != null && pageIndex != null && pageSize != null) {
+			//页转行
 			int beginIndex = PageCalculator.calculateRowIndex(pageIndex,
 					pageSize);
+			//查询返回该店铺的授权信息列表
 			List<ShopAuthMap> shopAuthMapList = shopAuthMapDao
 					.queryShopAuthMapListByShopId(shopId, beginIndex, pageSize);
+			//返回总数
 			int count = shopAuthMapDao.queryShopAuthCountByShopId(shopId);
 			ShopAuthMapExecution se = new ShopAuthMapExecution();
 			se.setShopAuthMapList(shopAuthMapList);
@@ -42,12 +46,14 @@ public class ShopAuthMapServiceImpl implements ShopAuthMapService {
 	@Transactional
 	public ShopAuthMapExecution addShopAuthMap(ShopAuthMap shopAuthMap)
 			throws RuntimeException {
+		//控制判断,主要是对店铺Id和员工Id做校验
 		if (shopAuthMap != null && shopAuthMap.getShopId() != null
 				&& shopAuthMap.getEmployeeId() != null) {
 			shopAuthMap.setCreateTime(new Date());
 			shopAuthMap.setLastEditTime(new Date());
 			shopAuthMap.setEnableStatus(1);
 			try {
+				//添加授权处理
 				int effectedNum = shopAuthMapDao.insertShopAuthMap(shopAuthMap);
 				if (effectedNum <= 0) {
 					throw new RuntimeException("添加授权失败");

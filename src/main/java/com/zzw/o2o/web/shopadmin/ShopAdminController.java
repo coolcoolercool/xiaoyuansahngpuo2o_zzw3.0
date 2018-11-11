@@ -34,7 +34,6 @@ public class ShopAdminController {
         return "shop/shoplist"; //这里添加的路径的是对应的html，也就是跳转到shoplist.html页面上
     }
 
-
     @RequestMapping(value = "/shopmanagement", method = RequestMethod.GET)
     //转发到店铺管理页面
     public String shopManagement() {
@@ -66,5 +65,45 @@ public class ShopAdminController {
     public String localAuthLogin(){
         return "shop/localauthlogin";
     }
+
+    //奖品和积分相关--------------------------------------------------------------------
+    @RequestMapping(value="/awardmanagement", method=RequestMethod.GET)
+    //转发到奖品管理
+    public String awardManagement(){
+        return "shop/awardmanagement";
+    }
+
+    @RequestMapping(value="/productbuyercheck", method=RequestMethod.GET)
+    //转发到消费记录
+    public String productBuyerCheck(){
+        return "shop/productbuyercheck";
+    }
+
+    @RequestMapping(value="/awarddelivercheck", method=RequestMethod.GET)
+    //转发到积分兑换
+    public String awardDeliverCheck(){
+        return "shop/awarddelivercheck";
+    }
+
+    @RequestMapping(value="/usershopcheck", method=RequestMethod.GET)
+    //转发到顾客积分
+    public String userShopCheck(){
+        return "shop/usershopcheck";
+    }
+
+    @RequestMapping(value="/shopauthmanagement", method=RequestMethod.GET)
+    //转发到授权管理
+    public String shoPauthManagement(){
+        return "shop/shopauthmanagement";
+    }
+
+    @RequestMapping(value="/shopauthedit", method=RequestMethod.GET)
+    //转发到授权信息修改
+    public String shopAuthEdit(){
+        return "shop/shopauthedit";
+    }
+
+
+
 
 }

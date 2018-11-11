@@ -15,6 +15,7 @@ public class Award {
 	private Integer point;
 	private Integer priority;
 	private Date createTime;
+	//到期时间
 	private Date expireTime;
 	private Date lastEditTime;
 	private Integer enableStatus;

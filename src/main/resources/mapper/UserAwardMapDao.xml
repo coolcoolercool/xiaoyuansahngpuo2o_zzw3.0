@@ -83,20 +83,20 @@
 		uam.shop_id =
 		s.shop_id
 		<where>
-			<if test="userAwardCondition.userId!=null">
-				and uam.user_id = #{userAwardCondition.userId}
+			<if test="userAwardCondition.user != null and userAwardCondition.user.userId !=null">
+				and uam.user_id = #{userAwardCondition.user.userId}
 			</if>
-			<if test="userAwardCondition.shopId!=null">
-				and uam.shop_id = #{userAwardCondition.shopId}
+			<if test="userAwardCondition.shop != null and userAwardCondition.shop.shopId!=null">
+				and uam.shop_id = #{userAwardCondition.shop.shopId}
 			</if>
 			<!-- 写like语句的时候 一般都会写成 like '% %' 在mybatis里面写就是应该是 like '%${name} %' 而不是 
 				'%#{name} %' ${name} 是不带单引号的，而#{name} 是带单引号的 -->
-			<if test="userAwardCondition.userName!=null">
-				and uam.user_name like '%${userAwardCondition.userName}%'
+			<if test="userAwardCondition.user != null and userAwardCondition.user.name !=null">
+				and uam.user_name like '%${userAwardCondition.user.name}%'
 			</if>
-			<if test="userAwardCondition.awardName!=null">
+			<if test="userAwardCondition.award != null and userAwardCondition.award.awardName!=null">
 				and uam.award_name like
-				'%${userAwardCondition.awardName}%'
+				'%${userAwardCondition.award.awardName}%'
 			</if>
 			<if test="userAwardCondition.expireTime!=null">
 				and uam.expire_time > #{userAwardCondition.expireTime}
@@ -107,31 +107,34 @@
 		</where>
 		LIMIT #{rowIndex},#{pageSize};
 	</select>
+
+
 	<select id="queryUserAwardMapCount" resultType="int">
 		SELECT
 		count(1)
 		FROM
-		tb_user_award_map
+		tb_user_award_map uam
 		<where>
-			<if test="userAwardCondition.userId!=null">
-				and user_id = #{userAwardCondition.userId}
+			<if test="userAwardCondition.user != null and userAwardCondition.user.userId !=null">
+				and uam.user_id = #{userAwardCondition.user.userId}
 			</if>
-			<if test="userAwardCondition.shopId!=null">
-				and shop_id = #{userAwardCondition.shopId}
+			<if test="userAwardCondition.shop != null and userAwardCondition.shop.shopId !=null">
+				and uam.shop_id = #{userAwardCondition.shop.shopId}
 			</if>
-			<!-- 写like语句的时候 一般都会写成 like '% %' 在mybatis里面写就是应该是 like '%${name} %' 而不是 
+			<!-- 写like语句的时候 一般都会写成 like '% %' 在mybatis里面写就是应该是 like '%${name} %' 而不是
 				'%#{name} %' ${name} 是不带单引号的，而#{name} 是带单引号的 -->
-			<if test="userAwardCondition.userName!=null">
-				and user_name like '%${userAwardCondition.userName}%'
+			<if test="userAwardCondition.user != null and userAwardCondition.user.name !=null">
+				and uam.user_name like '%${userAwardCondition.user.name}%'
 			</if>
-			<if test="userAwardCondition.awardName!=null">
-				and award_name like '%${userAwardCondition.awardName}%'
+			<if test="userAwardCondition.award != null and userAwardCondition.award.awardName!=null">
+				and uam.award_name like
+				'%${userAwardCondition.award.awardName}%'
 			</if>
 			<if test="userAwardCondition.expireTime!=null">
-				and expire_time > #{userAwardCondition.expireTime}
+				and uam.expire_time > #{userAwardCondition.expireTime}
 			</if>
 			<if test="userAwardCondition.usedStatus!=null">
-				and used_status = #{userAwardCondition.usedStatus}
+				and uam.used_status = #{userAwardCondition.usedStatus}
 			</if>
 		</where>
 	</select>
@@ -160,8 +163,10 @@
 		user_award_id =
 		#{userAwardId}
 	</select>
+<!--
+
 	<insert id="insertUserAwardMap" parameterType="com.zzw.o2o.entity.UserAwardMap"
-		useGeneratedKeys="true" keyProperty="userAwardId" keyColumn="user_award_id">
+			useGeneratedKeys="true" keyProperty="userAwardId" keyColumn="user_award_id">
 		INSERT
 		INTO
 		tb_user_award_map(user_id,award_id,shop_id,
@@ -170,6 +175,19 @@
 		(#{userId},#{awardId},#{shopId},
 		#{userName},#{awardName},#{expireTime},#{createTime},#{usedStatus},#{point})
 	</insert>
+-->
+
+	<insert id="insertUserAwardMap" parameterType="com.zzw.o2o.entity.UserAwardMap"
+			useGeneratedKeys="true" keyProperty="userAwardId" keyColumn="user_award_id">
+		INSERT
+		INTO
+		tb_user_award_map(user_id,award_id,shop_id,
+		user_name,award_name,expire_time,create_time,used_status,point)
+		VALUES
+		(#{user.userId},#{award.awardId},#{shop.shopId},
+		#{user.name},#{award.awardName},#{expireTime},#{createTime},#{usedStatus},#{point})
+	</insert>
+
 	<update id="updateUserAwardMap" parameterType="com.zzw.o2o.entity.UserAwardMap"
 		useGeneratedKeys="true" keyProperty="userAwardId" keyColumn="user_award_id">
 		UPDATE
@@ -179,6 +197,6 @@
 		WHERE
 		user_award_id =
 		#{userAwardId}
-		AND user_id = #{userId}
+		AND user_id = #{user.userId}
 	</update>
 </mapper>

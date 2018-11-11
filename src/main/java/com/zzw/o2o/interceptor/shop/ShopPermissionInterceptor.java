@@ -1,4 +1,4 @@
-package com.zzw.o2o.shop;
+package com.zzw.o2o.interceptor.shop;
 
 import java.util.List;
 

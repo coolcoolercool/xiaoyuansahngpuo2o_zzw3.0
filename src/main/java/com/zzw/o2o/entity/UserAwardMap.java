@@ -7,8 +7,12 @@ import java.util.Date;
 public class UserAwardMap {
 
 	private Long userAwardId;
+	//三个实体类对应的主键id
+	//顾客的Id
 	private Long userId;
+	//奖品的Id
 	private Long awardId;
+	//店铺的Id
 	private Long shopId;
 	private String userName;
 	private String awardName;
@@ -18,11 +22,15 @@ public class UserAwardMap {
 	private Integer usedStatus;
 	//领取奖品所消耗的积分
 	private Integer point;
-	//操作员工信息实体类
+
+	//顾客信息实体类,这里这个不清楚到底是店员还是顾客的信息
 	private PersonInfo user;
+
+	//奖品信息实体类
 	private Award award;
 	//店铺信息实体类
 	private Shop shop;
+
 
 	public Long getUserAwardId() {
 		return userAwardId;

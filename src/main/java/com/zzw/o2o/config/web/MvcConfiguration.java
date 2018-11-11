@@ -1,8 +1,7 @@
 package com.zzw.o2o.config.web;
 
 import com.google.code.kaptcha.servlet.KaptchaServlet;
-import com.zzw.o2o.shop.ShopLoginInterceptor;
-import com.zzw.o2o.shop.ShopPermissionInterceptor;
+import com.zzw.o2o.interceptor.shop.ShopLoginInterceptor;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;

@@ -8,7 +8,7 @@ import com.zzw.o2o.entity.UserProductMap;
 
 public interface UserProductMapDao {
 	/**
-	 * 
+	 * 根据查询条件分页返回用户购买商品的记录列表
 	 * @param userProductCondition
 	 * @param rowIndex
 	 * @param pageSize
@@ -19,7 +19,7 @@ public interface UserProductMapDao {
             @Param("rowIndex") int rowIndex, @Param("pageSize") int pageSize);
 
 	/**
-	 * 
+	 * 配合queryUserProductMapList根据相同的条件返回用户购买商品的记录总数
 	 * @param userProductCondition
 	 * @return
 	 */
@@ -27,7 +27,7 @@ public interface UserProductMapDao {
             @Param("userProductCondition") UserProductMap userProductCondition);
 
 	/**
-	 * 
+	 * 添加一条用户购买商品的记录
 	 * @param userProductMap
 	 * @return
 	 */

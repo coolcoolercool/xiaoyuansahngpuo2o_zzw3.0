@@ -128,4 +128,23 @@ public class PersonInfo {
     public void setEnableStatus(Integer enableStatus) {
         this.enableStatus = enableStatus;
     }
+
+    @Override
+    public String toString() {
+        return "PersonInfo{" +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
+                ", birthday=" + birthday +
+                ", gender='" + gender + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", profileImg='" + profileImg + '\'' +
+                ", customerFlag=" + customerFlag +
+                ", shopOwnerFlag=" + shopOwnerFlag +
+                ", adminFlag=" + adminFlag +
+                ", createTime=" + createTime +
+                ", lastEditTime=" + lastEditTime +
+                ", enableStatus=" + enableStatus +
+                '}';
+    }
 }

@@ -3,7 +3,7 @@ package com.zzw.o2o.entity;
 import java.util.Date;
 
 /**
- * 顾客消费的商铺映射
+ * 顾客消费的商品映射
  */
 public class UserProductMap {
 	//主键ID
@@ -16,8 +16,11 @@ public class UserProductMap {
 	private Date createTime;
 	//购买商品所获得的积分
 	private Integer point;
+	//顾客信息实体类
 	private PersonInfo user;
+	//商品信息实体类
 	private Product product;
+	//店铺信息实体类
 	private Shop shop;
 
 	public Long getUserProductId() {

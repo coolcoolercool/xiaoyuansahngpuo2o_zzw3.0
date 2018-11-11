@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Class-Path: spring-boot-starter-jdbc-1.5.8.RELEASE.jar commons-logging
+ -1.1.1.jar c3p0-0.9.1.2.jar core-3.3.0.jar validation-api-1.1.0.Final
+ .jar commons-beanutils-1.9.3.jar commons-lang-2.5.jar jedis-2.9.0.jar
+  commons-pool2-2.4.2.jar spring-boot-starter-logging-1.5.8.RELEASE.ja
+ r hibernate-validator-5.3.5.Final.jar spring-boot-1.5.8.RELEASE.jar j
+ cl-over-slf4j-1.7.25.jar spring-tx-4.3.12.RELEASE.jar jackson-annotat
+ ions-2.8.0.jar jul-to-slf4j-1.7.25.jar mybatis-spring-boot-starter-1.
+ 3.1.jar logback-core-1.1.11.jar xpp3_min-1.1.4c.jar json-lib-2.4-jdk1
+ 5.jar spring-beans-4.3.12.RELEASE.jar spring-webmvc-4.3.12.RELEASE.ja
+ r commons-io-2.2.jar thumbnailator-0.4.8.jar mybatis-3.4.5.jar snakey
+ aml-1.17.jar tomcat-annotations-api-8.5.23.jar jcommander-1.48.jar jb
+ oss-logging-3.3.1.Final.jar xmlpull-1.1.3.1.jar spring-boot-autoconfi
+ gure-1.5.8.RELEASE.jar ezmorph-1.0.6.jar jackson-core-2.8.10.jar filt
+ ers-2.0.235-1.jar mybatis-spring-boot-autoconfigure-1.3.1.jar protost
+ uff-core-1.0.12.jar spring-web-4.3.12.RELEASE.jar javase-3.3.0.jar sp
+ ring-expression-4.3.12.RELEASE.jar spring-jdbc-4.3.12.RELEASE.jar mys
+ ql-connector-java-5.1.38.jar commons-collections-3.2.jar jstl-1.2.jar
+  commons-fileupload-1.3.2.jar spring-core-4.3.12.RELEASE.jar mybatis-
+ spring-1.3.1.jar spring-boot-starter-1.5.8.RELEASE.jar kaptcha-2.3.2.
+ jar classmate-1.3.4.jar tomcat-embed-el-8.5.23.jar tomcat-embed-webso
+ cket-8.5.23.jar logback-classic-1.1.11.jar protostuff-api-1.0.12.jar 
+ xstream-1.4.9.jar jai-imageio-core-1.3.1.jar spring-context-4.3.12.RE
+ LEASE.jar spring-boot-starter-tomcat-1.5.8.RELEASE.jar spring-aop-4.3
+ .12.RELEASE.jar dom4j-2.0.0.jar tomcat-juli-8.5.23.jar tomcat-embed-c
+ ore-8.5.23.jar slf4j-api-1.7.25.jar log4j-over-slf4j-1.7.25.jar jaxen
+ -1.1.6.jar standard-1.1.2.jar spring-boot-starter-web-1.5.8.RELEASE.j
+ ar tomcat-jdbc-8.5.23.jar jackson-databind-2.8.10.jar javax.servlet-a
+ pi-3.1.0.jar
+Main-Class: com.zzw.o2o.O2oApplication
+
